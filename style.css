@@ -1,0 +1,720 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+:root{
+    --primary-color: rgb(61, 37, 20);
+    --secondary-color: rgb(191, 34, 34);
+    --third-color: rgb(255, 192, 69);
+    --white-color: rgb(255, 255, 255);
+    --black-color: rgb(0, 0, 0);
+    --trans: all 0.5s ease;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+}
+
+#hamburger{
+    overflow: hidden;
+}
+.body__content,
+.header__top,
+.header__bottom,
+.footer,
+.footer__copyright{
+    width: 90%;
+    margin: auto;
+}
+/* HEADER MOBILE */
+.header__mobile{
+    display: none;
+}
+.nav__mobile{
+    display: block;
+    position: relative;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.menu__mobile a{
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: var(--trans);
+}
+.menu__mobile a:hover{
+    color: var(--secondary-color);
+}
+.nav__mobile input{
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+    -webkit-touch-callout: none;
+}
+.line{
+    display: block;
+    position: relative;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    width: 30px;
+    height: 3px;
+    background-color: var(--white-color);
+    margin-bottom: 4px;
+    transition: 
+        transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1), 
+        background-color 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+        opacity 0.55s ease;
+}
+.line:first{
+    transform-origin: 0 0;
+}
+.line:nth-last-child(2){
+    transform-origin: 0 100%;
+}
+.nav__mobile input:checked ~ .line{
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background-color: var(--primary-color);
+}
+.nav__mobile input:checked ~.line:nth-last-child(2){
+    transform: rotate(-45deg) translate(0, 1px);
+}
+.nav__mobile input:checked ~.line:nth-last-child(3){
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+.menu__mobile{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    margin: -60px 0 0 -20px;
+    padding: 50px;
+    padding-top: 125px;
+    background-color: var(--white-color);
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0 0;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.menu__mobile li{
+    padding: 10px 0;
+    font-size: 22px;
+}
+.nav__mobile input:checked ~ ul{
+    transform: none;
+}
+/* END HEADER MOBILE */
+/* HEADER */
+#header{
+    background-color: var(--third-color);
+    padding: 36px;
+    transition: var(--trans);
+}
+.header__top{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.header__top__left{
+    height: 48px;
+}
+.header__top__left>img{
+    height: 100%;
+}
+.header__top__right__top{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    font-weight: 700;
+    font-size: .9rem;
+    margin-bottom: 16px;
+    
+}
+.header__top__right__top>img{
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    object-position: center;
+}
+.header__top__right__bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+.header__top__right__bottom>a{
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: var(--trans);
+}
+.frenchfries__img,
+.hamburger__img,
+.drink__img{
+    position: absolute;
+}
+.frenchfries__img{
+    top: 24%;
+    left: 10%;
+    
+}
+.hamburger__img{
+    top: 36%;
+    left: 20%;
+}
+.drink__img{
+    top: 10%;
+    left: 56%;
+}
+.header__bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__bottom__left,
+.header__bottom__right{
+    flex: 1;
+    text-transform: uppercase;
+    position: relative;
+}
+.header__bottom__right__img{
+    position: relative;
+    min-height: 500px;
+    height: 100%;
+    margin-top: 24px;
+}
+
+.header__bottom__left>h4{
+    border: 3px dashed var(--primary-color);
+    border-radius: 4px;
+    width: max-content;
+    padding: 12px;
+    transition: var(--trans);
+}
+.header__bottom__left>h1{
+    font-size: 5rem;
+    font-weight: 700;
+    -webkit-text-stroke: 3px var(--white-color);
+    text-shadow: .25rem .5rem .75rem var(--primary-color);
+    transition: var(--trans);
+}
+.header__bottom__left>h2{
+    font-size: 3.5rem;
+    -webkit-text-stroke: 1px var(--white-color);
+    text-shadow: .25rem .5rem .75rem var(--primary-color);
+    transition: var(--trans);
+}
+.header__bottom__right__price{
+    background-color: var(--secondary-color);
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    position: relative;
+    left: 14%;
+}
+.header__bottom__right__price::after{
+    content: '';
+    position: absolute;
+    border: 2px dashed var(--white-color);
+    width: 85%;
+    height: 85%;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.header__bottom__right__price>p{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white-color);
+    text-align: center;
+}
+.price{
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.special{
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+/* END HEADER */
+
+/* TASTY BURGER */
+.tasty__burger__wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 52px;
+}
+.tasty__burger__card{
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: var(--trans);
+    cursor: pointer;
+}
+.tasty__burger__card:hover{
+    transform: translateY(-10px);
+    box-shadow: .25rem .25rem .75rem var(--primary-color);
+}
+.tasty__burger__card>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.tasty__burger__card__text{
+    position: absolute;
+    left: 4%;
+    top: 8%;
+    color: var(--white-color);
+    text-transform: uppercase;
+    transition: var(--trans);
+}
+.tasty__burger__card__text>h4{
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    padding-bottom: 4px;
+}
+.tasty__burger__card__text>h3{
+    font-size: 1.5rem;
+}
+.burger__card--1{
+    grid-column: 1;
+    grid-row: 1/3;
+}
+.burger__card--2{
+    grid-column: 2;
+    grid-row: 1;
+}
+.burger__card--3{
+    grid-column: 2;
+    grid-row: 2;
+}
+/* END TASTY BURGER */
+
+/* CHOOSE ENJOY */
+.choose__enjoy__wrapper{
+    margin-top: 52px;
+}
+.choose__enjoy__title{
+    margin-bottom: 36px;
+}
+.btn__choose{
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    background: transparent;
+    position: relative;
+    transition: var(--trans);
+    padding: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.1rem;
+    overflow: hidden; 
+    display: block;
+    margin: auto;
+}
+.btn__choose::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary-color);
+    transition: var(--trans);
+    transform: translateX(-100%);
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+.btn__choose:hover{
+    color: var(--white-color);
+}
+.btn__choose:hover::before{
+    transform: translateX(0);
+}
+
+.choose__enjoy__title>h2{
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: center;
+    margin: 24px 0 12px;
+    transition: var(--trans);
+}
+.choose__enjoy__title>p{
+    text-align: center;
+    white-space: pre-wrap;
+    transition: var(--trans);
+}
+.choose__enjoy{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+}
+.choose__enjoy__card{
+    text-align: center;
+}
+.choose__enjoy__card>img{
+    width: 100%;
+    position: relative;
+    transition: var(--trans);
+}
+.choose__enjoy__card>img:hover{
+    transform: translateY(-10px);
+}
+.choose__enjoy__card>h4{
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    transition: var(--trans);
+}
+.choose__enjoy__card>p{
+    font-size: .9rem;
+    text-align: center;
+    margin: 12px 0 24px;
+    transition: var(--trans);
+}
+.btn__order{
+    border: none;
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 12px 32px;
+    transition: var(--trans);
+    text-transform: uppercase;
+    border-radius: 8px;
+}
+.btn__order:hover{
+    box-shadow: .5rem .5rem 1.25rem var(--secondary-color);
+}
+/* END CHOOSE ENJOY */
+
+/* DISCOVER */
+.discover__wrapper,
+.book__wrapper{
+    margin-top: 52px;
+}
+.discover__card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: .5rem .0rem 1rem var(--primary-color);
+}
+.discover__card__left>h3,
+.book__wrapper>h3{
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: 600;
+    transition: var(--trans);
+}
+.discover__card__left>h2,
+.book__wrapper>h2{
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-bottom: 24px;
+    transition: var(--trans);
+}
+.discover__card__left,
+.discover__card__right{
+    flex: 1;
+}
+.discover__card__right>img{
+    width: 100%;
+}
+/* END DISCOVER */
+
+/* BOOK YOUR TABLE */
+.book__wrapper{
+    text-align: center;
+    position: relative;
+    min-height: 400px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.form__booking{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+.form__booking>input{
+    height: 100%;
+    min-height: 42px;
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+    padding-left: 12px;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    transition: var(--trans);
+}
+.form__booking>input:focus,
+.form__booking>input:hover,
+.form__booking>input:active{
+    outline: none;
+    box-shadow: none;
+}
+.form__booking>button{
+    border: none;
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-radius: 4px;
+}
+
+/* END BOOK YOUR TABLE */
+
+/* FOOTER */
+#footer__wrapper{
+    background-image: linear-gradient(rgba(61, 37, 20, 0.4), rgba(61, 37, 20, 0.7)), url("/img/footer-bg.jpg");
+    background-position: top center;
+    background-size: 100%, cover;
+    padding: 36px 24px 24px;
+    margin-top: 52px;
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    color: var(--white-color);
+}
+.footer__left,
+.footer__right{
+    width: 45%;
+    transition: var(--trans);
+}
+.footer__left>img{
+    width: auto;
+    max-height: 52px;
+    height: 100%
+}
+.footer__left>p{
+    font-size: .8rem;
+    line-height: 1.5rem;
+}
+.contact{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: .8rem;
+}
+.contact>img{
+    width: 16px;
+    object-fit: contain;
+    object-position: center;
+    height: 16px;
+}
+.footer__copyright{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 48px;
+    color: var(--white-color);
+    text-transform: uppercase;
+    font-size: .7rem;
+    font-weight: 600;
+}
+.social__media{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+}
+.social__media>a>img{
+    width: 28px;
+    height: 28px;
+    object-fit: cover;
+    object-position: center;
+    transform: translate(), scale();
+}
+/* END FOOTER */
+
+/* =================MENU MOBILE=============== */
+
+/* ===============END MENU MOBILE============ */
+
+
+/* ===================RESPONSIVE=============== */
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .header__top__right__bottom a{
+        font-size: 0.8rem;
+    }
+    .header__bottom{
+        align-items: flex-start;
+        margin-top: 48px;
+    }
+    .header__bottom__left,
+    .header__bottom__right{
+        flex: 1;
+    }
+    .frenchfries__img{
+        left: -500px;
+        top: 220px;
+    }
+    .drink__img{
+       left: -200px;
+       top: 80px;
+    }
+    .hamburger__img{
+        left: -450px;
+        top: 200px;
+    }
+    .header__bottom__right__price{
+        left: -360px;
+    }
+    .tasty__burger__card__text>h3{
+        font-size: 1.3rem;
+    }
+    .tasty__burger__card__text>h4{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    p{
+        font-size: 0.95rem;
+    }
+    #header{
+        padding: 0;
+    }
+    .header__bottom,
+    .footer, .footer__copyright{
+        width: 100%;
+    }
+    .header__bottom{
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 32px;
+    }
+    .header__bottom__left>h4{
+        font-size: 0.7rem;
+    }
+    .header__bottom__left>h1{
+        font-size: 4rem;
+    }
+    .header__bottom__left>h2{
+        font-size: 2.5rem;
+    }
+    .header__top{
+        display: none;
+    }
+    .header__mobile{
+        display: block;
+    }
+    .header__bottom__right__img{
+        margin-top: 0;
+        min-height: 300px;
+    }
+    .frenchfries__img, .hamburger__img, .drink__img{
+        width: 240px;
+    }
+    .hamburger__img{
+        left: -50%;
+    }
+    .frenchfries__img{
+        left: -140%;
+    }
+    .drink__img{
+        left: 50%;
+    }
+    .header__bottom__right__price{
+        left: -70%;
+    }
+    .tasty__burger__wrapper{
+        grid-template-columns: repeat(1, 1fr);   
+    }
+    .burger__card--1,
+    .burger__card--2,
+    .burger__card--3{
+        grid-column: unset;
+        grid-row: unset;
+    }
+    .tasty__burger__card__text>h4{
+        font-size: 0.9rem;
+    }
+    .tasty__burger__card__text>h3{
+        font-size: 1.2rem;
+    }
+    .choose__enjoy{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .discover__card{
+        flex-direction: column;
+        gap: 16px;
+    }
+    .discover__card__left>h3, .book__wrapper>h3{
+        font-size: 1rem;
+    }
+    .discover__card__left>h2, .book__wrapper>h2{
+        font-size: 1.5rem;
+        padding-top: 4px;
+    }
+    .discover__card__right>img{
+        width: 100%;
+    }
+    .book__wrapper{
+        min-height: auto;
+    }
+    .form__booking{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .form__booking>button{
+        min-height: 42px;
+    }
+    .footer{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .footer__left, .footer__right{
+        width: 100%;
+    }
+    .footer__copyright{
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+}
+
+
+
+.gs_reveal {
+    opacity: 0;
+    visibility: hidden;
+    will-change: transform, opacity;
+  }
